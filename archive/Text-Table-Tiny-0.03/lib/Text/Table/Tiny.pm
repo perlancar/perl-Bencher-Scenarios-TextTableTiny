@@ -5,6 +5,7 @@ use List::Util qw();
 
 # ABSTRACT: makes simple tables from two-dimensional arrays, with limited templating options
 
+our $VERSION = '0.03'; # patch by Bencher-Scenarios-TextTableTiny
 
 our $COLUMN_SEPARATOR = '|';
 our $ROW_SEPARATOR = '-';
@@ -36,7 +37,7 @@ sub table {
         my $header_row = $rows->[0];
 	$data_begins++;
         push @table, sprintf(
-	    $format, 
+	    $format,
 	    map { defined($header_row->[$_]) ? $header_row->[$_] : '' } (0..$max_index)
 	);
         push @table, $params{separate_rows} ? $head_row_sep : $row_sep;
@@ -45,7 +46,7 @@ sub table {
     # then the data
     foreach my $row ( @{ $rows }[$data_begins..$#$rows] ) {
         push @table, sprintf(
-	    $format, 
+	    $format,
 	    map { defined($row->[$_]) ? $row->[$_] : '' } (0..$max_index)
 	);
         push @table, $row_sep if $params{separate_rows};
@@ -209,4 +210,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

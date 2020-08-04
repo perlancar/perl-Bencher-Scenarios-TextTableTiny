@@ -2,6 +2,8 @@ use strict;
 use warnings;
 package Text::Table::Tiny;
 
+our $VERSION = '0.001'; # patch by Bencher-Scenarios-TextTableTiny
+
 our $COLUMN_SEPARATOR = '|';
 our $ROW_SEPARATOR = '-';
 our $CORNER_MARKER = '+';
@@ -169,4 +171,3 @@ __END__
     $Text::Table::Tiny::HEADER_CORNER_MARKER = 'O';
 
 =cut
-
