@@ -25,18 +25,15 @@ our $scenario = {
     participants => [
         {
             module => 'Text::Table::Tiny',
-            code => sub {
-                my ($table) = @_;
-                Text::Table::Tiny::table(rows=>$table, header_row=>1);
-            },
+            code_template => 'Text::Table::Tiny::table(rows=><table>, header_row=>1)',
         },
     ],
     datasets => [
-        {name=>'tiny (1x1)'    , argv => [_make_table( 1, 1)],},
-        {name=>'small (3x5)'   , argv => [_make_table( 3, 5)],},
-        {name=>'wide (30x5)'   , argv => [_make_table(30, 5)],},
-        {name=>'long (3x300)'  , argv => [_make_table( 3, 300)],},
-        {name=>'large (30x300)', argv => [_make_table(30, 300)],},
+        {name=>'tiny (1x1)'    , args => {table=>_make_table( 1, 1)},},
+        {name=>'small (3x5)'   , args => {table=>_make_table( 3, 5)},},
+        {name=>'wide (30x5)'   , args => {table=>_make_table(30, 5)},},
+        {name=>'long (3x300)'  , args => {table=>_make_table( 3, 300)},},
+        {name=>'large (30x300)', args => {table=>_make_table(30, 300)},},
     ],
 };
 
